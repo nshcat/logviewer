@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FilterDialog</class>
+ <widget class="QDialog" name="FilterDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>247</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QRadioButton" name="bttThreshold">
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Use threshold</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="boxThreshold">
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="currentIndex">
+      <number>4</number>
+     </property>
+     <item>
+      <property name="text">
+       <string>Fatal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Error</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Warning</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Info</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Debug</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QRadioButton" name="bttSet">
+     <property name="text">
+      <string>Use set</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="lstSet">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+     <item>
+      <property name="text">
+       <string>Fatal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Error</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Warning</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Info</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Debug</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>FilterDialog</receiver>
+   <slot>clickedOk()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>FilterDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>295</x>
+     <y>284</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lstSet</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>FilterDialog</receiver>
+   <slot>itemClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bttThreshold</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>FilterDialog</receiver>
+   <slot>thresholdChosen(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>23</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bttSet</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>FilterDialog</receiver>
+   <slot>setChosen(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>49</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>131</x>
+     <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>okClicked()</slot>
+  <slot>itemClicked()</slot>
+  <slot>clickedOk()</slot>
+  <slot>thresholdChosen(bool)</slot>
+  <slot>setChosen(bool)</slot>
+ </slots>
+</ui>

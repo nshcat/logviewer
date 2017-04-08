@@ -1,7 +1,7 @@
 #include <QRadioButton>
 #include <QListWidget>
 #include <QComboBox>
-#include "filterdialog.h"
+#include "filterdialog.hxx"
 #include "ui_filterdialog.h"
 
 FilterDialog::FilterDialog(FilterSettings& p_filter, QWidget *parent) :

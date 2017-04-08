@@ -1,4 +1,4 @@
-#include "filtersettings.h"
+#include "filtersettings.hxx"
 
 FilterSettings::FilterSettings()
 {

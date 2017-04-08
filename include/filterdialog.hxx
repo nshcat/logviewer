@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QSet>
 
-#include "filtersettings.h"
+#include "filtersettings.hxx"
 
 namespace Ui {
 class FilterDialog;

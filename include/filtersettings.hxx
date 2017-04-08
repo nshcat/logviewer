@@ -3,7 +3,7 @@
 
 #include <QSet>
 #include <ut/cast.hxx>
-#include "message.h"
+#include "message.hxx"
 
 class FilterSettings
 {

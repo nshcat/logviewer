@@ -4,9 +4,9 @@
 #include <QMainWindow>
 #include <QVector>
 
-#include "filtersettings.h"
-#include "message.h"
-#include "messageserver.h"
+#include "filtersettings.hxx"
+#include "message.hxx"
+#include "messageserver.hxx"
 
 namespace Ui {
 class MainWindow;

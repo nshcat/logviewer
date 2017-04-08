@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <ut/cast.hxx>
 
-#include "message.h"
+#include "message.hxx"
 
 uint qHash(MessageLevel p_key, uint p_seed)
 {

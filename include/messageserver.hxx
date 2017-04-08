@@ -8,7 +8,7 @@
 #include <QTcpSocket>
 #include <QMap>
 
-#include "message.h"
+#include "message.hxx"
 
 class MessageServer : public QObject
 {

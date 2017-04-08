@@ -1,5 +1,5 @@
 #include <ut/throwf.hxx>
-#include "messageserver.h"
+#include "messageserver.hxx"
 
 MessageServer::MessageServer(quint16 p_port, QObject *parent) : QObject(parent)
 {

@@ -3,8 +3,8 @@
 
 #include <ut/cast.hxx>
 
-#include "filterdialog.h"
-#include "mainwindow.h"
+#include "filterdialog.hxx"
+#include "mainwindow.hxx"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :

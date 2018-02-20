@@ -32,19 +32,21 @@ public:
 public:
     const QString& message() const;
     const QString& source() const;
+    const QString& tag() const;
     const QDateTime& timestamp() const;
     bool isBare() const;
     MessageLevel level() const;
 
 private:
+	QString m_Tag;
     QString m_Msg;
     QString m_Src;
     QDateTime m_Timestamp;
-    bool m_IsBare;
-    MessageLevel m_Level;
+    bool m_IsBare{ };
+    MessageLevel m_Level{ };
 
     // Length of the fixed part of a package, in bytes
-    constexpr static quint32 fixed_length = 12;
+    constexpr static quint32 fixed_length = 13;
 };
 
 #endif // MESSAGE_H

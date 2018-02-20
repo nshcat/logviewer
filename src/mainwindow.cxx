@@ -68,6 +68,7 @@ void MainWindow::displayMessage(const Message& p_msg)
         {
             p_msg.source(),
             p_msg.timestamp().toString("hh:mm:ss"),
+            p_msg.tag(),
             levelString(p_msg.level()),
             p_msg.message()
         });
@@ -79,17 +80,18 @@ void MainWindow::displayMessage(const Message& p_msg)
             "",
             "",
             "",
+            "",
             p_msg.message()
         });
     }
 
     // Set colors
-    for(int i = 0; i < 4; ++i)
+    for(int i = 0; i < 5; ++i)
     {
         t_item->setBackground(i, background(p_msg.level()));
 
         t_item->setForeground(i,
-            (i == 3 ? foregroundMsg(p_msg.level()) : foreground(p_msg.level())));
+            (i == 4 ? foregroundMsg(p_msg.level()) : foreground(p_msg.level())));
     }
 
 

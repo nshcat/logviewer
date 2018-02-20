@@ -15,6 +15,11 @@ Message::Message()
 
 }
 
+const QString& Message::tag() const
+{
+	return m_Tag;
+}
+
 const QString& Message::message() const
 {
     return m_Msg;
@@ -42,21 +47,22 @@ MessageLevel Message::level() const
 
 bool Message::tryParse(QByteArray& p_data)
 {
-    // We need at least 2 bytes to determine lenght of both message
+    // We need at least 3 bytes to determine length of both message
     // and source fields
-    if(p_data.length() < 2)
+    if(p_data.length() < 3)
         return false;
 
     // We can extract length information
     quint8 t_lenMsg; // Length of message
     quint8 t_lenSrc; // Length of source
+    quint8 t_lenTag; // Length of tag
 
     // Stream used to extract binary values
     QDataStream t_stream(&p_data, QIODevice::ReadWrite);
-    t_stream >> t_lenMsg >> t_lenSrc;
+    t_stream >> t_lenMsg >> t_lenSrc >> t_lenTag;
 
     // Expected length of whole packet
-    const quint32 t_pLen = t_lenMsg + t_lenSrc + fixed_length;
+    const quint32 t_pLen = t_lenMsg + t_lenSrc + t_lenTag + fixed_length;
 
     // Decide if there is enough data available to read the whole packet
     if(p_data.length() >= t_pLen)
@@ -79,6 +85,7 @@ bool Message::tryParse(QByteArray& p_data)
         // Convert strings.
         m_Msg = QString::fromLocal8Bit(p_data.data() + fixed_length, t_lenMsg);
         m_Src = QString::fromLocal8Bit(p_data.data() + fixed_length + t_lenMsg, t_lenSrc);
+		m_Tag = QString::fromLocal8Bit(p_data.data() + fixed_length + t_lenMsg + t_lenSrc, t_lenTag);
 
         // Remove used-up data from buffer
         p_data.remove(0, t_pLen);

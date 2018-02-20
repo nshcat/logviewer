@@ -72,6 +72,11 @@
       </column>
       <column>
        <property name="text">
+        <string>Tag</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
         <string>Level</string>
        </property>
       </column>
